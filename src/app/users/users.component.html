@@ -1,0 +1,45 @@
+<div class="container">
+  <div>
+    <select (change)="onTableSizeDataChange($event)">
+      <option *ngFor="let size of tableSizes">
+        {{size}}
+      </option>
+    </select>
+  </div>
+  <table class="table">
+    <thead>
+      <th>
+        Name
+      </th>
+      <th>
+        Email
+      </th>
+      <th>
+        Image
+      </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of USERS | paginate:{
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count}; let i = index">
+        <td>{{user.name}}</td>
+        <td>
+          <a [routerLink]="['/user', user.id]" routerLinkActive="active" >
+            {{user.email}}
+          </a>
+        </td>
+        <td>
+            {{user.image}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+  </div>
+</div>
