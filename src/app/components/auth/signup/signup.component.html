@@ -1,0 +1,58 @@
+<div class="signup-container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="signup()" class="signup-form">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" formControlName="name">
+      <div *ngIf="signupForm.controls['name'].invalid && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)">
+        <div *ngIf="signupForm.controls['name'].errors?.['required']">Name is required.</div>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email">
+      <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)">
+        <div *ngIf="signupForm.controls['email'].errors?.['required']">Email is required.</div>
+        <div *ngIf="signupForm.controls['email'].errors?.['email']">Invalid email format.</div>
+      </div>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input type="password" id="password" formControlName="password">
+      <div *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)">
+        <div *ngIf="signupForm.controls['password'].errors?.['required']">Password is required.</div>
+        <div *ngIf="signupForm.controls['password'].errors?.['minlength']">Password must have at least 8 characters.</div>
+      </div>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" id="confirmPassword" formControlName="confirmPassword">
+      <div *ngIf="signupForm.controls['confirmPassword'].invalid && (signupForm.controls['confirmPassword'].dirty || signupForm.controls['confirmPassword'].touched)">
+        <div *ngIf="signupForm.controls['confirmPassword'].errors?.['required']">Confirm Password is required.</div>
+        <div *ngIf="signupForm.controls['confirmPassword'].errors?.['minlength']">Confirm Password must have at least 8 characters.</div>
+      </div>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input type="text" id="address" formControlName="address">
+      <div *ngIf="signupForm.controls['address'].invalid && (signupForm.controls['address'].dirty || signupForm.controls['address'].touched)">
+        <div *ngIf="signupForm.controls['address'].errors?.['required']">Address is required.</div>
+      </div>
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" formControlName="phoneNumber">
+      <div *ngIf="signupForm.controls['phoneNumber'].invalid && (signupForm.controls['phoneNumber'].dirty || signupForm.controls['phoneNumber'].touched)">
+      <div *ngIf="signupForm.controls['phoneNumber'].errors?.['required']">Phone Number is required.</div>
+      </div>
+    </div>
+    <div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" formControlName="age">
+      <div *ngIf="signupForm.controls['age']?.invalid && (signupForm.controls['age']?.dirty || signupForm.controls['age']?.touched)">
+        <div *ngIf="signupForm.controls['age']?.errors?.['pattern']">Age must be a number.</div>
+      </div>
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+</div>

@@ -1,0 +1,14 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+.custom {
+  border: 10px solid #0000ff; /* Replace #ff0000 with your desired border color */
+  width: 70%;
+
+}
+.title{
+  justify-content: center;
+  display: flex;
+  font-size: 20px;
+}

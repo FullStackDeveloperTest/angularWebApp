@@ -4,11 +4,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UsersComponent } from './users/users.component';
-import { LoginComponent } from './login/login.component';
+import { UserProfileComponent } from './components/users/user-profile/user-profile.component';
+import { UsersComponent } from './components/users/users/users.component';
+import { LoginComponent } from './components/auth/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SignupComponent } from './signup/signup.component';
     AppRoutingModule,
     HttpClientModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

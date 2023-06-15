@@ -1,36 +1,39 @@
 <div class="container">
   <div>
+    <input type="text" placeholder="Search by name" [(ngModel)]="searchText">
     <select (change)="onTableSizeDataChange($event)">
       <option *ngFor="let size of tableSizes">
         {{size}}
       </option>
     </select>
   </div>
-  <table class="table">
+  <table class="table table-bordered">
     <thead>
-      <th>
-        Name
-      </th>
-      <th>
-        Email
-      </th>
-      <th>
-        Image
-      </th>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Email
+        </th>
+        <th>
+          Image
+        </th>
+      </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of USERS | paginate:{
+      <tr *ngFor="let user of filteredUsers | paginate:{
         itemsPerPage: tableSize,
         currentPage: page,
         totalItems: count}; let i = index">
         <td>{{user.name}}</td>
         <td>
-          <a [routerLink]="['/user', user.id]" routerLinkActive="active" >
+          <a [routerLink]="['/user', user.id]" routerLinkActive="active">
             {{user.email}}
           </a>
         </td>
         <td>
-            {{user.image}}
+          <img [src]="user.image" alt="Random Image" class="small-image">
         </td>
       </tr>
     </tbody>
@@ -42,4 +45,5 @@
       (pageChange)="onTableDataChange($event)">
     </pagination-controls>
   </div>
+  <button type="button" (click)="logOut()">Log out</button>
 </div>

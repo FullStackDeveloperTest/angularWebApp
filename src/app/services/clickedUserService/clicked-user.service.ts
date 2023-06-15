@@ -14,7 +14,7 @@ export class ClickedUserService {
     const token = this.authService.getToken();
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': `${token}`, 
+      'Authorization': `Bearer ${token}`, 
     });
     return this.http.get(endpoint+id, {headers: headers});
   }
